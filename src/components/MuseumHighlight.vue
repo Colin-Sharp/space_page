@@ -66,7 +66,6 @@ export default {
     }
     &__content {
         padding: 10px;
-        margin-top: auto;
     }
     &__from-parterns {
         background: rgba(66, 158, 104, 0.616);
