@@ -109,8 +109,7 @@ export default {
 
     },
     created() {
-        console.log('partnersArray: ', this.sortedArray);
-    },
+    }
 };
 </script>
 
