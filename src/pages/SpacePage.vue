@@ -117,9 +117,7 @@ export default {
 .space-page {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    width: 90%;
-    margin: 30px auto;
+    justify-content: center;   
     &__title {
         color: #2c3791;
         font-size: 24px;
