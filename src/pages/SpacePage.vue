@@ -9,10 +9,10 @@
             <div class="space-page__highlights__card" v-for="(item, index) in sortedArray" v-bind:key="index">
                 <img class="space-page__highlights__card__star" src="../assets/star.png" alt="">
                 <MuseumHighlight :name="item.name" 
-                                    :description="item.description" 
-                                    :fromPartners="item.fromPartners"
-                                    :news="item.news"
-                                    :quiz="item.quiz" >
+                                 :description="item.description" 
+                                 :fromPartners="item.fromPartners"
+                                 :news="item.news"
+                                 :quiz="item.quiz" >
                 </MuseumHighlight>
             </div>
         </div>

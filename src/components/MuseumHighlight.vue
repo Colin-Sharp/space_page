@@ -45,6 +45,7 @@ export default {
         };
     },
     computed: {
+        
     },
     methods: {
         isFromPartners() {
