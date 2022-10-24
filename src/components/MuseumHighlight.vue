@@ -8,8 +8,12 @@
             <p>{{description}}</p>
             <div v-if="news && news.date || news && news.title">
                 <h4>News</h4>
-                <p v-if="news && news.date">Date: {{news.date}}</p>
-                <p v-if="news && news.title">Title: {{news.title}}</p>
+                <p v-if="news && news.date">
+                    <span>Date:</span> {{news.date}}
+                </p>
+                <p v-if="news && news.title">
+                    <span>Title:</span> {{news.title}}
+                </p>
             </div>
             <div v-if="quiz">
                 <h4>Quiz</h4>
@@ -58,13 +62,13 @@ export default {
 <style lang="scss" scoped>
 .museum-highlight {
     &__image {
-        max-width: 400px;
-        @media screen and (max-width: 480px) {
-            max-width: 300px;
-        } 
+        max-width: 100%;
     }
     &__content {
         padding: 10px;
+        span {
+            font-weight: 600;
+        }
     }
 }
 </style>

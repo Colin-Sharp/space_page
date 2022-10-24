@@ -1,23 +1,20 @@
 <template>
     <div class="space-page">
-
         <h1 class="space-page__title">
             Space
         </h1>
-
-        <div class="space-page__highlights">
-            <div class="space-page__highlights__card" v-for="(item, index) in sortedArray" v-bind:key="index " 
-                :class="{'space-page__highlights__card__from-parterns': item.fromPartners }">
-                <img class="space-page__highlights__card__star" src="../assets/star.png" alt="">
-                <MuseumHighlight :name="item.name" 
-                                 :description="item.description" 
-                                 :fromPartners="item.fromPartners"
-                                 :news="item.news"
-                                 :quiz="item.quiz" >
-                </MuseumHighlight>
-            </div>
-        </div>
-
+            <section class="space-page__highlights">
+                <article class="space-page__highlights__card" v-for="(item, index) in sortedArray" v-bind:key="index " 
+                    :class="{'space-page__highlights__card__from-parterns': item.fromPartners }">
+                    <img class="space-page__highlights__card__star" src="../assets/star.png" alt="">
+                    <MuseumHighlight :name="item.name" 
+                                     :description="item.description" 
+                                     :fromPartners="item.fromPartners"
+                                     :news="item.news"
+                                     :quiz="item.quiz" >
+                    </MuseumHighlight>
+                </article>
+            </section>
     </div>
 </template>
 
@@ -118,33 +115,50 @@ export default {
 .space-page {
     display: flex;
     flex-direction: column;
-    justify-content: center;   
+    width: 90%;
+    margin: 0 auto;
+
     &__title {
         color: #2c3791;
         font-size: 24px;
         font-weight: 600;
+        text-align: center;
+        @media screen and (min-width: 40em) {
+            text-align: left;
+        }
     }
+
     &__highlights {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        @media screen and (max-width: 480px) {
-            flex-direction: column;
-            align-items: center;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        @media screen and (min-width: 40em) {
+            justify-content: space-between;
+            flex-direction: row;
+            align-items: stretch;
+            flex-wrap: wrap;
         }
+
         &__card {
             background: rgb(97, 130, 173);
             box-shadow: 0 0 4px rgba(0,0,0,0.4);
-            max-width: 400px;
-            margin: 10px 20px;
             position: relative;
             text-align: left;
-            @media screen and (max-width: 480px) {
-                max-width: 300px;
+            flex: auto;
+            max-width: 100%;
+            margin-bottom: 2rem;
+            @media screen and (min-width: 40em) {
+                flex: 0 1 calc(50% - 2em);
             }
+            @media screen and (min-width: 70em) {
+                flex: 0 1 calc(25% - 2em);
+            }
+
             &__from-parterns {
                 background: rgba(66, 158, 104, 0.616);
             }
+            
             &__star {
                 position: absolute;
                 top: -17px;
