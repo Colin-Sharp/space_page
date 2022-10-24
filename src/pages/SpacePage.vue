@@ -6,7 +6,8 @@
         </h1>
 
         <div class="space-page__highlights">
-            <div class="space-page__highlights__card" v-for="(item, index) in sortedArray" v-bind:key="index">
+            <div class="space-page__highlights__card" v-for="(item, index) in sortedArray" v-bind:key="index " 
+                :class="{'space-page__highlights__card__from-parterns': item.fromPartners }">
                 <img class="space-page__highlights__card__star" src="../assets/star.png" alt="">
                 <MuseumHighlight :name="item.name" 
                                  :description="item.description" 
@@ -132,14 +133,19 @@ export default {
             align-items: center;
         }
         &__card {
+            background: rgb(97, 130, 173);
+            box-shadow: 0 0 4px rgba(0,0,0,0.4);
             max-width: 300px;
-            padding: 20px;
+            margin: 10px 20px;
             position: relative;
             text-align: left;
+            &__from-parterns {
+                background: rgba(66, 158, 104, 0.616);
+            }
             &__star {
                 position: absolute;
-                top: 2px;
-                right: 8px;
+                top: -17px;
+                right: -17px;
                 width: 40px;
                 height: 40px;
                 z-index: 10;

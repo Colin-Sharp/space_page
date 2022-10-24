@@ -1,5 +1,5 @@
 <template>
-    <div class="museum-highlight" :class="{'museum-highlight__from-parterns': isFromPartners() }">
+    <div class="museum-highlight">
         <!-- I have added a default image just for display as the data didn't have any images -->
         <img class="museum-highlight__image" :src="!!image ? image : 'https://images.unsplash.com/photo-1538370965046-79c0d6907d47?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80'" alt="name">
      
@@ -20,7 +20,6 @@
 </template>
 
 <script>
-
 
 export default {
     name: 'MuseumHighlight',
@@ -48,9 +47,7 @@ export default {
         
     },
     methods: {
-        isFromPartners() {
-            return this.fromPartners;
-        }
+        
     },
     created() {
 
@@ -60,16 +57,11 @@ export default {
 
 <style lang="scss" scoped>
 .museum-highlight {
-    background: rgba(97, 130, 173, 0.664);
-    position: relative;
     &__image {
         max-width: 300px; 
     }
     &__content {
         padding: 10px;
-    }
-    &__from-parterns {
-        background: rgba(66, 158, 104, 0.616);
     }
 }
 </style>
