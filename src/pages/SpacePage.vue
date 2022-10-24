@@ -135,10 +135,13 @@ export default {
         &__card {
             background: rgb(97, 130, 173);
             box-shadow: 0 0 4px rgba(0,0,0,0.4);
-            max-width: 300px;
+            max-width: 400px;
             margin: 10px 20px;
             position: relative;
             text-align: left;
+            @media screen and (max-width: 480px) {
+                max-width: 300px;
+            }
             &__from-parterns {
                 background: rgba(66, 158, 104, 0.616);
             }

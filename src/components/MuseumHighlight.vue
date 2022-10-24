@@ -47,7 +47,7 @@ export default {
         
     },
     methods: {
-        
+
     },
     created() {
 
@@ -58,7 +58,10 @@ export default {
 <style lang="scss" scoped>
 .museum-highlight {
     &__image {
-        max-width: 300px; 
+        max-width: 400px;
+        @media screen and (max-width: 480px) {
+            max-width: 300px;
+        } 
     }
     &__content {
         padding: 10px;
