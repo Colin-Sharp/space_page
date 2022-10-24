@@ -17,7 +17,7 @@
             </div>
             <div v-if="quiz">
                 <h4>Quiz</h4>
-                 <a href="quiz" target="blank">{{quiz}}</a>
+                <span>Link:</span> <a href="quiz" target="blank">{{quiz}}</a>
             </div>
         </div>
     </div>
@@ -66,6 +66,9 @@ export default {
     }
     &__content {
         padding: 10px;
+        a {
+            color: rgb(221, 221, 24);
+        }
         span {
             font-weight: 600;
         }
