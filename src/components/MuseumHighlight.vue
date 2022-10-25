@@ -17,7 +17,7 @@
             </div>
             <div v-if="quiz">
                 <h4>Quiz</h4>
-                <span>Link:</span> <a href="quiz" target="blank">{{quiz}}</a>
+                <span>Link:</span> <a :href="quiz" target="blank">{{quiz}}</a>
             </div>
         </div>
     </div>
