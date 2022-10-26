@@ -4,14 +4,10 @@
             Space
         </h1>
             <section class="space-page__highlights">
-                <article class="space-page__highlights__card" v-for="(item, index) in sortedArray" v-bind:key="index " 
+                <article class="space-page__highlights__card" v-for="item in sortedArray" v-bind:key="item.id" 
                     :class="{'space-page__highlights__card__from-parterns': item.fromPartners }">
-                    <img class="space-page__highlights__card__star" src="../assets/star.png" alt="">
-                    <MuseumHighlight :name="item.name" 
-                                     :description="item.description" 
-                                     :fromPartners="item.fromPartners"
-                                     :news="item.news"
-                                     :quiz="item.quiz" >
+                    <img class="space-page__highlights__card__star" src="../assets/star.png" alt="star">
+                    <MuseumHighlight :highlight="item">
                     </MuseumHighlight>
                 </article>
             </section>

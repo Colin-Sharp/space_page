@@ -1,21 +1,21 @@
 <template>
     <div class="museum-highlight">
-        <!-- I have added a default image just for display as the data didn't have any images -->
-        <img class="museum-highlight__image" :src="!!image ? image : 'https://images.unsplash.com/photo-1538370965046-79c0d6907d47?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80'" alt="name">
+        
+        <img class="museum-highlight__image" :src="image" :alt="highlight.name">
      
         <div class="museum-highlight__content">
-            <h3>{{name}}</h3>
-            <p>{{description}}</p>
-            <div v-if="news && news.date || news && news.title">
+            <h3>{{highlight.name}}</h3>
+            <p>{{highlight.description}}</p>
+            <div v-if="news">
                 <h4>News</h4>
-                <p v-if="news && news.date">
-                    <span>Date:</span> {{news.date}}
+                <p v-if="news.date">
+                    <span>Date:</span> {{hightlight.news.date}}
                 </p>
-                <p v-if="news && news.title">
-                    <span>Title:</span> {{news.title}}
+                <p v-if="news.title">
+                    <span>Title:</span> {{hightlight.news.title}}
                 </p>
             </div>
-            <div v-if="quiz">
+            <div v-if="!!quiz">
                 <h4>Quiz</h4>
                 <span>Link:</span> <a :href="quiz" target="blank">{{quiz}}</a>
             </div>
@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import _ from 'lodash';
 
 export default {
     name: 'MuseumHighlight',
@@ -33,14 +34,7 @@ export default {
     mixins: [
     ],
     props: {
-        date: String,
-        description: String,
-        id: String || Number,
-        image: String,
-        name: String,
-        fromPartners: Boolean,
-        news: Object,
-        quiz: String
+        highlight: Object
     },
     data() {
         return {
@@ -48,7 +42,22 @@ export default {
         };
     },
     computed: {
-        
+        news() {
+            if (!this.highlight.news) return null;
+
+            return _(this.highlight.news).map((item) => {
+                return {
+                    date: item?.date || null,
+                    title: item?.title || null
+                };
+            }).value();
+        },
+        image() {
+            return this.highlight.image || 'https://images.unsplash.com/photo-1538370965046-79c0d6907d47?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80';
+        },
+        quiz() {
+            return this.highlight.quiz || null;
+        }
     },
     methods: {
 
